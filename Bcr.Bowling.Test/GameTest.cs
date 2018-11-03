@@ -69,5 +69,18 @@ namespace Bcr.Bowling.Test
             game.Throw(new int[] { 10, 1, 2 });
             Assert.AreEqual(16, game.Score);
         }
+
+        [TestMethod]
+        public void TestPerfectGame()
+        {
+            var game = new Game();
+
+            // Greatest player ever!
+            // Ten frames of strikes plus two more strikes to finish
+            // the tenth frame = 12 strikes = 300
+
+            game.Throw(Enumerable.Repeat(10, 12));
+            Assert.AreEqual(300, game.Score);
+        }
     }
 }

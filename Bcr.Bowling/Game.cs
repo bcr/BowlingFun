@@ -25,7 +25,7 @@ namespace Bcr.Bowling
                     lastFramePrimaryThrowsDone = frame.IsPrimaryThrowsDone;
                 }
 
-                if (lastFramePrimaryThrowsDone)
+                if ((lastFramePrimaryThrowsDone) && (frames.Count < 10))
                 {
                     frames.Add(new Frame());
                 }
