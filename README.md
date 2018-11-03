@@ -33,6 +33,10 @@ evaluating the solution).  Make sure to indicate how much time you spent
 on this task.
 ```
 
+## Notes
+
+I am scoring according to the [Traditional scoring](https://en.wikipedia.org/wiki/Ten-pin_bowling#Traditional_scoring) section of the Wikipedia article.
+
 ## Original Commands
 
 These are the original commands I used to create my projects. Just informational.
