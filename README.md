@@ -1,4 +1,4 @@
-# Bowling
+# Bowling [![Build Status](https://travis-ci.org/bcr/BowlingFun.svg?branch=master)](https://travis-ci.org/bcr/BowlingFun)
 
 ## Problem Statement
 
