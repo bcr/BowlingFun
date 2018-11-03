@@ -40,4 +40,6 @@ These are the original commands I used to create my projects. Just informational
 ```bash
 dotnet new console -o Bcr.Bowling
 dotnet new mstest -o Bcr.Bowling.Test
+
+Bcr.Bowling.Test$ dotnet add reference ../Bcr.Bowling
 ```
