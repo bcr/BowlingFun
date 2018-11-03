@@ -48,12 +48,13 @@ namespace Bcr.Bowling.Test
 
             // See if we can score a spare.
             // First two throws total ten, third throw is added to the total
+            // The running score total, despite the open frame, is 16
+            // 2 + 8 + 3 for the first frame, 3 for the second = 16
 
             game.Throw(new int[] { 2, 8, 3 });
-            Assert.AreEqual(13, game.Score);
+            Assert.AreEqual(16, game.Score);
         }
 
-        [Ignore]
         [TestMethod]
         public void TestStrike()
         {

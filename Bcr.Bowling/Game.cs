@@ -1,44 +1,33 @@
 using System.Collections.Generic;
+
 using System.Linq;
 
 namespace Bcr.Bowling
 {
     public class Game
     {
-        public int Score { get; set; }
+        public int Score { get { return frames.Sum(frame => frame.Score); } }
 
-        private enum GameState
-        {
-            FirstBall,
-            SecondBall,
-            Spare,
-        }
+        private List<Frame> frames = new List<Frame> { new Frame() };
 
         public void Throw(IEnumerable<int> throws)
         {
-            GameState state = GameState.FirstBall;
-            int score = 0;
-
             foreach (var _throw in throws)
             {
-                score += _throw;
+                bool lastFramePrimaryThrowsDone = false;
 
-                switch (state)
+                foreach (var frame in frames)
                 {
-                    case GameState.FirstBall:
-                        state = GameState.SecondBall;
-                        break;
+                    if (frame.WantsMoreThrows)
+                    {
+                        frame.Throw(_throw);
+                    }
+                    lastFramePrimaryThrowsDone = frame.IsPrimaryThrowsDone;
+                }
 
-                    case GameState.SecondBall:
-                        Score += score;
-                        state = (score == 10) ? GameState.Spare : GameState.FirstBall;
-                        score = 0;
-                        break;
-                    
-                    case GameState.Spare:
-                        Score += score;
-                        state = GameState.SecondBall;
-                        break;
+                if (lastFramePrimaryThrowsDone)
+                {
+                    frames.Add(new Frame());
                 }
             }
         }
