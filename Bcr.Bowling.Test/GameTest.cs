@@ -52,5 +52,21 @@ namespace Bcr.Bowling.Test
             game.Throw(new int[] { 2, 8, 3 });
             Assert.AreEqual(13, game.Score);
         }
+
+        [Ignore]
+        [TestMethod]
+        public void TestStrike()
+        {
+            var game = new Game();
+
+            // See if we can score a strike.
+            // First throw is ten, second and third throw is added to the total
+
+            // The second frame is completed also, so it's 10 + 1 + 2 for the
+            // first frame, 1 + 2 for the second frame, so 16 total
+
+            game.Throw(new int[] { 10, 1, 2 });
+            Assert.AreEqual(16, game.Score);
+        }
     }
 }
