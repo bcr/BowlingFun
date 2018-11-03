@@ -26,5 +26,19 @@ namespace Bcr.Bowling.Test
             game.Throw(Enumerable.Repeat(0, 20));
             Assert.AreEqual(0, game.Score);
         }
+
+        [TestMethod]
+        public void TestOpenFrames()
+        {
+            var game = new Game();
+
+            // A little better than our gutterball friend. Hits a pin.
+            // 20 throws of one (two for each frame, ten frames)
+
+            // Finally an opportunity to score something!
+
+            game.Throw(Enumerable.Repeat(1, 20));
+            Assert.AreEqual(20, game.Score);
+        }
     }
 }

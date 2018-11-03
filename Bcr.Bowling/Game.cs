@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Bcr.Bowling
 {
@@ -8,6 +9,7 @@ namespace Bcr.Bowling
 
         public void Throw(IEnumerable<int> throws)
         {
+            Score = throws.Sum();
         }
     }
 }
