@@ -40,5 +40,17 @@ namespace Bcr.Bowling.Test
             game.Throw(Enumerable.Repeat(1, 20));
             Assert.AreEqual(20, game.Score);
         }
+
+        [TestMethod]
+        public void TestSpare()
+        {
+            var game = new Game();
+
+            // See if we can score a spare.
+            // First two throws total ten, third throw is added to the total
+
+            game.Throw(new int[] { 2, 8, 3 });
+            Assert.AreEqual(13, game.Score);
+        }
     }
 }
