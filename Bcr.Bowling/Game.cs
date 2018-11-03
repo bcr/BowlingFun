@@ -14,7 +14,8 @@ namespace Bcr.Bowling
         {
             foreach (var _throw in throws)
             {
-                bool lastFramePrimaryThrowsDone = false;
+                Frame lastFrame = null;
+                int frameCount = 0;
 
                 foreach (var frame in frames)
                 {
@@ -22,10 +23,11 @@ namespace Bcr.Bowling
                     {
                         frame.Throw(_throw);
                     }
-                    lastFramePrimaryThrowsDone = frame.IsPrimaryThrowsDone;
+                    lastFrame = frame;
+                    ++frameCount;
                 }
 
-                if ((lastFramePrimaryThrowsDone) && (frames.Count < 10))
+                if ((lastFrame.IsPrimaryThrowsDone) && (frameCount < 10))
                 {
                     frames.Add(new Frame());
                 }
