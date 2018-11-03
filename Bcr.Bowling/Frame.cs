@@ -10,6 +10,7 @@ namespace Bcr.Bowling
         {
             FirstBall,
             SecondBall,
+            Spare,
         }
 
         private FrameState state = FrameState.FirstBall;
@@ -23,8 +24,18 @@ namespace Bcr.Bowling
                     state = FrameState.SecondBall;
                     break;
                 case FrameState.SecondBall:
-                    WantsMoreThrows = (Score == 10);
+                    if (Score == 10)
+                    {
+                        state = FrameState.Spare;
+                    }
+                    else
+                    {
+                        WantsMoreThrows = false;
+                    }
                     IsPrimaryThrowsDone = true;
+                    break;
+                case FrameState.Spare:
+                    WantsMoreThrows = false;
                     break;
             }
         }
