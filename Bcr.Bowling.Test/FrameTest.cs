@@ -65,5 +65,23 @@ namespace Bcr.Bowling.Test
 
             Assert.AreEqual(10, frame.Score);
         }
+
+        [TestMethod]
+        public void TestStrikeFrame()
+        {
+            var frame = new Frame();
+
+            frame.Throw(10);
+            Assert.IsTrue(frame.IsPrimaryThrowsDone);
+            Assert.IsTrue(frame.WantsMoreThrows);
+            frame.Throw(8);
+            Assert.IsTrue(frame.IsPrimaryThrowsDone);
+            Assert.IsTrue(frame.WantsMoreThrows);
+            frame.Throw(3);
+            Assert.IsTrue(frame.IsPrimaryThrowsDone);
+            Assert.IsFalse(frame.WantsMoreThrows);
+
+            Assert.AreEqual(21, frame.Score);
+        }
     }
 }
