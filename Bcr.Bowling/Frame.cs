@@ -23,7 +23,7 @@ namespace Bcr.Bowling
                     state = FrameState.SecondBall;
                     break;
                 case FrameState.SecondBall:
-                    WantsMoreThrows = false;
+                    WantsMoreThrows = (Score == 10);
                     IsPrimaryThrowsDone = true;
                     break;
             }
