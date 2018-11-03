@@ -77,11 +77,11 @@ namespace Bcr.Bowling.Test
             frame.Throw(8);
             Assert.IsTrue(frame.IsPrimaryThrowsDone);
             Assert.IsTrue(frame.WantsMoreThrows);
-            frame.Throw(3);
+            frame.Throw(1);
             Assert.IsTrue(frame.IsPrimaryThrowsDone);
             Assert.IsFalse(frame.WantsMoreThrows);
 
-            Assert.AreEqual(21, frame.Score);
+            Assert.AreEqual(19, frame.Score);
         }
     }
 }
