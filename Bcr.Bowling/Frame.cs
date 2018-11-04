@@ -19,6 +19,15 @@ namespace Bcr.Bowling
 
         public void Throw(int _throw)
         {
+            if (_throw < 0)
+            {
+                throw new BowlingException("Negative throws are not permitted");
+            }
+            else if (!IsPrimaryThrowsDone && ((Score + _throw) > 10))
+            {
+                throw new BowlingException("This throw would knock down more pins than we have");
+            }
+
             Score += _throw;
             switch (state)
             {

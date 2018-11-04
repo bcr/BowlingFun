@@ -83,5 +83,27 @@ namespace Bcr.Bowling.Test
 
             Assert.AreEqual(19, frame.Score);
         }
+
+        [TestMethod]
+        public void TestNegativeThrow()
+        {
+            var frame = new Frame();
+            Assert.ThrowsException<BowlingException>(() => frame.Throw(-1));
+        }
+
+        [TestMethod]
+        public void TestMoreThanTenThrow()
+        {
+            var frame = new Frame();
+            Assert.ThrowsException<BowlingException>(() => frame.Throw(11));
+        }
+
+        [TestMethod]
+        public void TestMoreThanTenFrame()
+        {
+            var frame = new Frame();
+            frame.Throw(2);
+            Assert.ThrowsException<BowlingException>(() => frame.Throw(9));
+        }
     }
 }
